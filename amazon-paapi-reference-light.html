@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon PAAPI 5.0 Reference Guide</title>
+    <title>Amazon PAAPI 5.0 Reference Guide - Light</title>
+    <meta name="author" content="Cody Turk">
+    <meta name="description" content="Comprehensive Product Advertising API reference guide created by Cody Turk. Complete documentation for developers implementing affiliate marketing solutions.">
+    <meta name="keywords" content="Product API, Advertising API, affiliate marketing, Cody Turk, web development, e-commerce, API reference">
+    <link rel="canonical" href="https://github.com/cotrk/Amazon-Paapi-Reference-Guide">
+    <!-- Open Graph tags for better social sharing -->
+    <meta property="og:title" content="Amazon PAAPI 5.0 Reference Guide">
+    <meta property="og:description" content="Comprehensive Product Advertising API reference guide for developers and affiliate marketers">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/cotrk/Amazon-Paapi-Reference-Guide">
+    <meta property="og:image" content="https://raw.githubusercontent.com/cotrk/Amazon-Paapi-Reference-Guide/main/screenshots/Screenshot%202025-03-31%20074818.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #232f3e;
@@ -52,6 +64,7 @@
             font-size: 24px;
             font-weight: bold;
             color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
         }
         
         .section {
@@ -138,6 +151,44 @@
             font-size: 14px;
         }
         
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            header, footer, .github-corner, .scroll-to-top {
+                display: none;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+            
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            
+            a[href]:after {
+                content: " (" attr(href) ")";
+                font-size: 10pt;
+                color: #666;
+            }
+        }
+        
+        /* Responsive styles */
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -147,19 +198,201 @@
                 display: block;
                 overflow-x: auto;
             }
+            
+            .toc-container {
+                position: relative;
+                top: 0;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Table of Contents styles */
+        .toc-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        
+        .toc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .toc-toggle {
+            transition: transform 0.3s;
+        }
+        
+        .toc-toggle.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .toc-content {
+            max-height: 300px;
+            overflow-y: auto;
+            transition: max-height 0.3s ease-out;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-color) var(--bg-light);
+        }
+        
+        .toc-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .toc-content::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 4px;
+        }
+        
+        .toc-content::-webkit-scrollbar-thumb {
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .toc-content.collapsed {
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        
+        .toc-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc-list a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* GitHub corner */
+        .github-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .github-corner svg {
+            fill: var(--secondary-color);
+            color: var(--bg-light);
+            width: 80px;
+            height: 80px;
+        }
+        
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out;
+        }
+        
+        @keyframes octocat-wave {
+            0%, 100% { transform: rotate(0); }
+            20%, 60% { transform: rotate(-25deg); }
+            40%, 80% { transform: rotate(10deg); }
+        }
+        
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        
+        /* Last updated info */
+        .last-updated {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Code highlighting */
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">Amazon PAAPI 5.0</div>
-            <div>Reference Guide</div>
+            <div class="logo">Amazon PAAPI 5.0 Reference Guide</div>
+            <a href="https://github.com/cotrk/Amazon-Paapi-Reference-Guide" class="github-corner" aria-label="View on GitHub">
+                <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+                    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" class="octo-arm"></path>
+                    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+                </svg>
+            </a>
         </div>
     </header>
     
     <div class="container">
-        <div class="section">
+        <!-- Table of Contents -->
+        <div class="toc-container">
+            <div class="toc-header">
+                Table of Contents
+                <div class="toc-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="toc-content collapsed">
+                <ul class="toc-list">
+                    <li><a href="#overview">1. Overview</a></li>
+                    <li><a href="#api-operations">2. API Operations</a></li>
+                    <li><a href="#common-request-parameters">3. Common Request Parameters</a></li>
+                    <li><a href="#resources">4. Resources</a></li>
+                    <li><a href="#searchitems-operation">5. SearchItems Operation</a></li>
+                    <li><a href="#getitems-operation">6. GetItems Operation</a></li>
+                    <li><a href="#getvariations-operation">7. GetVariations Operation</a></li>
+                    <li><a href="#getbrowsenodes-operation">8. GetBrowseNodes Operation</a></li>
+                    <li><a href="#rate-limits">9. Rate Limits and Throttling</a></li>
+                    <li><a href="#error-handling">10. Error Handling</a></li>
+                    <li><a href="#sdk-support">11. SDK Support</a></li>
+                    <li><a href="#troubleshooting">12. Troubleshooting</a></li>
+                    <li><a href="#changelog">13. Changelog</a></li>
+                </ul>
+                <div class="last-updated">Last Updated: April 23, 2025</div>
+            </div>
+        </div>
+        
+        <div id="overview" class="section">
             <div class="section-header">1. Overview</div>
             <div class="section-content">
                 <p>Amazon's Product Advertising API (PAAPI) 5.0 allows developers to access Amazon's product catalog, search for items, retrieve product details, and generate affiliate links. This API uses JSON format over HTTPS and offers SDK support for popular programming languages.</p>
@@ -170,7 +403,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="api-operations" class="section">
             <div class="section-header">2. API Operations</div>
             <div class="section-content">
                 <table>
@@ -228,7 +461,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="common-request-parameters" class="section">
             <div class="section-header">3. Common Request Parameters</div>
             <div class="section-content">
                 <table>
@@ -292,7 +525,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="resources" class="section">
             <div class="section-header">4. Resources</div>
             <div class="section-content">
                 <p>Resources determine what information is returned in the API response. Each operation supports specific resources that can be requested.</p>
@@ -364,7 +597,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="searchitems-operation" class="section">
             <div class="section-header">5. SearchItems Operation</div>
             <div class="section-content">
                 <p>The SearchItems operation searches for products on Amazon based on various criteria.</p>
@@ -442,7 +675,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="getitems-operation" class="section">
             <div class="section-header">6. GetItems Operation</div>
             <div class="section-content">
                 <p>The GetItems operation retrieves detailed information about specific products by their ASINs.</p>
@@ -486,7 +719,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="getvariations-operation" class="section">
             <div class="section-header">7. GetVariations Operation</div>
             <div class="section-content">
                 <p>The GetVariations operation retrieves information about a product's variations (e.g., different sizes/colors).</p>
@@ -535,7 +768,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="getbrowsenodes-operation" class="section">
             <div class="section-header">8. GetBrowseNodes Operation</div>
             <div class="section-content">
                 <p>The GetBrowseNodes operation retrieves information about Amazon's category hierarchy.</p>
@@ -569,7 +802,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="rate-limits" class="section">
             <div class="section-header">9. Rate Limits and Throttling</div>
             <div class="section-content">
                 <p>Amazon imposes rate limits on PAAPI 5.0 requests. Initial limits for new accounts:</p>
@@ -592,7 +825,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div id="error-handling" class="section">
             <div class="section-header">10. Error Handling</div>
             <div class="section-content">
                 <table>
@@ -662,7 +895,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div id="sdk-support" class="section">
             <div class="section-header">11. SDK Support</div>
             <div class="section-content">
                 <p>Amazon provides official SDKs for several programming languages:</p>
@@ -702,18 +935,192 @@
                 <div class="note">
                     Several community-maintained wrappers also exist for various programming languages.
                 </div>
+                
+                <h4>Example SDK Usage (Node.js):</h4>
+                <pre><code>const amazonPaapi = require('amazon-paapi');
+
+const commonParameters = {
+  AccessKey: 'YOUR_ACCESS_KEY',
+  SecretKey: 'YOUR_SECRET_KEY',
+  PartnerTag: 'your-tag-20',
+  PartnerType: 'Associates',
+  Marketplace: 'www.amazon.com'
+};
+
+const requestParameters = {
+  Keywords: 'harry potter books',
+  SearchIndex: 'Books',
+  ItemCount: 10
+};
+
+amazonPaapi.SearchItems(commonParameters, requestParameters)
+  .then(response => {
+    console.log('API response:', response);
+  })
+  .catch(error => {
+    console.error('Error calling API:', error);
+  });</code></pre>
+            </div>
+        </div>
+        
+        <div id="troubleshooting" class="section">
+            <div class="section-header">12. Troubleshooting</div>
+            <div class="section-content">
+                <p>Common issues and solutions when working with the Product Advertising API.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Possible Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Authentication failed</td>
+                            <td>Incorrect access key or secret key</td>
+                            <td>Verify your credentials in the Amazon Associates account</td>
+                        </tr>
+                        <tr>
+                            <td>Request throttled</td>
+                            <td>Exceeding rate limits</td>
+                            <td>Implement exponential backoff retry logic</td>
+                        </tr>
+                        <tr>
+                            <td>Invalid parameter value</td>
+                            <td>Using incorrect parameter format</td>
+                            <td>Check the API documentation for correct parameter formats</td>
+                        </tr>
+                        <tr>
+                            <td>No results found</td>
+                            <td>Search criteria too restrictive</td>
+                            <td>Broaden search terms or try different parameters</td>
+                        </tr>
+                        <tr>
+                            <td>Missing required resources</td>
+                            <td>Not specifying necessary resources</td>
+                            <td>Include all required resources in your request</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="warning">
+                    If you're consistently getting errors, check the <a href="https://webservices.amazon.com/paapi5/documentation/troubleshooting.html" target="_blank">official troubleshooting guide</a> or contact Amazon support.
+                </div>
+            </div>
+        </div>
+        
+        <div id="changelog" class="section">
+            <div class="section-header">13. Changelog</div>
+            <div class="section-content">
+                <p>Recent updates to the Amazon PAAPI 5.0 and this reference guide.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Version</th>
+                            <th>Changes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>April 23, 2025</td>
+                            <td>1.2.0</td>
+                            <td>Added table of contents, improved navigation, added troubleshooting section</td>
+                        </tr>
+                        <tr>
+                            <td>March 31, 2025</td>
+                            <td>1.1.0</td>
+                            <td>Added screenshots, improved styling, created dark mode version</td>
+                        </tr>
+                        <tr>
+                            <td>February 15, 2025</td>
+                            <td>1.0.0</td>
+                            <td>Initial release of the Amazon PAAPI 5.0 Reference Guide</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    This reference guide is maintained independently and is not affiliated with Amazon. For official API changes, refer to the <a href="https://webservices.amazon.com/paapi5/documentation/" target="_blank">official documentation</a>.
+                </div>
             </div>
         </div>
     </div>
     
+    <!-- Scroll to top button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
     <footer>
-        <p style="font-size:12px; padding:2em 0; font-weight:500; opacity:0.5;">Its me Cody and I put this together for a solo<br> yolo <a href="https://ibuytoys.com" targe="_blank">ibuytoys.com</a>project.</p>
-        <div style="opacity:0.5; font-weight:3e00;">
-            <p>Amazon PAAPI 5.0 Referuide | Based on official Amazon documentation</p>
-            <p>For complete documentation, visit <a href="https://webservices.amIts me Cody and I put this together documentation/" target="_blank">Amazon Product Advertising API 5.0 Documentation</a></p>
+        <div>
+            <a href="https://github.com/cotrk/Amazon-Paapi-Reference-Guide" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <div class="last-updated">Last Updated: April 23, 2025</div>
+            <div style="opacity:0.7; margin-top: 10px;">
+                <p>Created by Cody Turk</p>
+                <p> 2025 All Rights Reserved</p>
+            </div>
         </div>
-
     </footer>
-    <a href="ibuytoys.com" alt="amazon toy price tracker"><img src="https://lgrzbaqrbbvknpnphslw.supabase.co/storage/v1/object/sign/tracker-gif/tracker-gif/amazon-toy-tracker-ibuytoys-app.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0cmFja2VyLWdpZi90cmFja2VyLWdpZi9hbWF6b24tdG95LXRyYWNrZXItaWJ1eXRveXMtYXBwLnBuZyIsImlhdCI6MTc0MzQyNzUwNiwiZXhwIjoxNzQ2MDE5NTA2fQ.EwRFw-zzppTFrysEF7DHNYaUO6Wu1gu8h-6bQjQuwxo" /></a>
+    
+    <script>
+        // Table of Contents toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocContent = document.querySelector('.toc-content');
+            const tocToggle = document.querySelector('.toc-toggle');
+            
+            // Initialize with collapsed state
+            tocContent.classList.add('collapsed');
+            tocToggle.classList.remove('rotated');
+            
+            tocHeader.addEventListener('click', () => {
+                tocContent.classList.toggle('collapsed');
+                tocToggle.classList.toggle('rotated');
+            });
+            
+            // Set up smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL without scrolling
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
