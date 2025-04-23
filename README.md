@@ -17,3 +17,8 @@ Error Handling - Common error types, HTTP status codes, and guidance on which er
 SDK Support - Information about the official SDKs provided by Amazon for Java, PHP, Python, and Node.js.
 
 The guide features a clean, modern design with tables for easy reference, color-coded tags, and highlighted code examples. It's fully responsive and optimized for both desktop and mobile viewing.
+
+---
+### Download via Google Drive
+
+https://drive.google.com/drive/folders/1qbhRxyP1dTg5cwr6--qFrdcN1alytcCA?usp=drive_link
