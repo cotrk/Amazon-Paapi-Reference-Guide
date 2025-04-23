@@ -1,24 +1,25 @@
-# Amazon PAAPI 5.0 cheat sheet
+# Amazon PAAPI 5.0 Reference Guide
 
-HTML reference guide for Amazon's Product Advertising API (PAAPI) 5.0. 
+A comprehensive HTML reference guide for Amazon's Product Advertising API (PAAPI) 5.0, designed for developers and affiliate marketers.
 
----
+## Guide Contents
 
-The guide is structured into the following sections:
+**Core Sections**
+* **Overview** - Introduction to PAAPI 5.0 and its advantages over previous versions
+* **API Operations** - Comprehensive documentation of all four main API operations with endpoints and parameters
+* **Common Request Parameters** - Complete list of parameters used across all operations including AccessKey, SecretKey, and PartnerTag
+* **Resources** - Detailed explanation of the resource structure for API responses
 
-Overview - A brief introduction to PAAPI 5.0 and its improvements over older versions.
-API Operations - Details on the four main API operations: SearchItems, GetItems, GetVariations, and GetBrowseNodes, including their endpoints and required parameters.
-Common Request Parameters - Lists the parameters that are common across all API operations, such as AccessKey, SecretKey, PartnerTag, and more.
-Resources - Explains the resource structure that determines what information is returned in API responses, organized into categories like BrowseNodeInfo, Images, ItemInfo, and Offers.
+**Technical Details**
+* **Operation Documentation** - In-depth coverage of SearchItems, GetItems, GetVariations, and GetBrowseNodes with all parameters
+* **Rate Limits and Throttling** - Guidelines on Amazon's request rate limitations and performance-based adjustments
+* **Error Handling** - Documentation of error types, HTTP status codes, and retry strategies
+* **SDK Support** - Information on official Amazon SDKs for Java, PHP, Python, and Node.js
 
-Operation-Specific Sections - Detailed information on each operation (SearchItems, GetItems, GetVariations, GetBrowseNodes) including their specific parameters.
-Rate Limits and Throttling - Information about Amazon's request rate limits and how they're adjusted based on sales performance.
-Error Handling - Common error types, HTTP status codes, and guidance on which errors can be retried.
-SDK Support - Information about the official SDKs provided by Amazon for Java, PHP, Python, and Node.js.
+## Features
 
-The guide features a clean, modern design with tables for easy reference, color-coded tags, and highlighted code examples. It's fully responsive and optimized for both desktop and mobile viewing.
+The reference guide includes modern design elements with easy-to-read tables, color-coded parameter tags, and properly formatted code examples. The documentation is fully responsive for both desktop and mobile devices.
 
----
-### Download via Google Drive
+## Download
 
-https://drive.google.com/drive/folders/1qbhRxyP1dTg5cwr6--qFrdcN1alytcCA?usp=drive_link
+Access the complete guide via [Google Drive](https://drive.google.com/drive/folders/1qbhRxyP1dTg5cwr6--qFrdcN1alytcCA?usp=drive_link)
